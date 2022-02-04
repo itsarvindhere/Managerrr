@@ -8,19 +8,19 @@ import {useFirestore} from '../../hooks/useFirestore';
 import {useAuthContext} from '../../hooks/useAuthContext';
 
 // React Router DOM Import
-import {useHistory} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 export const ProjectSummary = ({project}) => {
     const {deleteDocument, response} = useFirestore('projects');
     const {user}= useAuthContext();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     //HandleClick Method
     const handleClick = async() => {
         if(window.confirm("This will permanently delete the project. Are you sure?")){
             await deleteDocument(project.id);
         if(!response.error){
-            history.push('/');
+            navigate('/');
         }
         }
         

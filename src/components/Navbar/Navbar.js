@@ -17,7 +17,7 @@ import Loader from '../../assets/three-dots.svg';
 
 export const Navbar = () => {
 
-    const {logout, isPending, error} = useLogOut();
+    const {logout, isPending} = useLogOut();
     const {user} = useAuthContext();
   
     return ( 

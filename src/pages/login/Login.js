@@ -5,7 +5,7 @@ import './Login.css'
 import { useEffect, useState } from 'react';
 
 // React Router Imports
-import {useHistory}  from 'react-router-dom';
+import {useNavigate}  from 'react-router-dom';
 
 // LOADER
 import Loader from '../../assets/three-dots.svg';
@@ -26,8 +26,8 @@ export const Login = () => {
   // useAuthContext
   const {user} = useAuthContext();
 
-  // Location
-  const history = useHistory();
+  // useNavigate
+  const navigate = useNavigate();
 
   //Handle FORM Submit Event
   const handleSubmit = (e) => {
@@ -39,9 +39,9 @@ export const Login = () => {
   // If user has logged in, then redirect to the homepage
   useEffect(() => {
       if(user){
-        history.push('/');
+        navigate('/');
       }
-  }, [user])
+  }, [user, navigate])
 
 
   return(

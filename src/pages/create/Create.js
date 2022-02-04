@@ -7,7 +7,7 @@ import {useState, useEffect} from 'react';
 import Select from 'react-select';
 
 //React Router Imports
-import {useHistory} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 // useCollection Hook
 import {useCollection} from '../../hooks/useCollection';
@@ -59,8 +59,8 @@ export const Create = () => {
   const [categoryError, setCategoryError] = useState(null);
   const [assignedUsersError, setAssignedUsersError] = useState(null);
 
-  // useHistory
-  const history = useHistory();
+  // useNavigate
+  const navigate = useNavigate();
 
 
   // User from AuthContext
@@ -117,7 +117,7 @@ export const Create = () => {
 
     await addDocument(project);
     if(!response.error){
-      history.push('/');
+      navigate('/');
     }
   }
 
