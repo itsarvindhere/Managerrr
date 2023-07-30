@@ -33,6 +33,7 @@
 .project-list ul {
     margin: 10px 0;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .project-list li {
